@@ -2,7 +2,7 @@ import os
 import json
 from typing import Dict, Any, List
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.responses import RedirectResponse, HTMLResponse,FileResponse
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 from dotenv import load_dotenv
@@ -117,3 +117,10 @@ def terms():
 def privacy():
     html = Path("app/templates/privacy.html").read_text(encoding="utf-8")
     return HTMLResponse(html)
+
+@app.get("/tiktoklZMH3IJtaGmfDxImk57gOXUJNC2kdZsu.txt")
+def tiktok_domain_verify():
+    return FileResponse(
+        "app/domain_verification/tiktoklZMH3IJtaGmfDxImk57gOXUJNC2kdZsu.txt",
+        media_type="text/plain"
+    )
