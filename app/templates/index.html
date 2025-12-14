@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="../static/main.css"></head>
+<body>
+  <h1>WildFacts Publisher</h1>
+
+  <p>Terms: <a href="/terms">Terms</a> | Privacy: <a href="/privacy">Privacy</a></p>
+
+  {% if connected %}
+    <p>Status: Connected</p>
+    <p><a href="/publish">Go to Publish</a></p>
+  {% else %}
+    <p>Status: Not connected</p>
+    <a href="/tiktok/login">Login with TikTok</a>
+  {% endif %}
+</body>
+</html>

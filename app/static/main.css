@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px;
+  line-height: 1.5;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+button {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  overflow-x: auto;
+}

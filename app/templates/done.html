@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="../static/main.css"></head>
+<body>
+  <h1>Done</h1>
+  {% if result %}
+    <pre>{{ result | tojson(indent=2) }}</pre>
+  {% else %}
+    <p>No result.</p>
+  {% endif %}
+  <p><a href="/publish">Publish another</a></p>
+</body>
+</html>

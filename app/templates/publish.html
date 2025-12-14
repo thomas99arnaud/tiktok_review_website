@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="../static/main.css"></head>
+<body>
+  <h1>Publish to TikTok</h1>
+  <p>Connected account: {{ username }} ({{ nickname }})</p>
+
+  <form method="post" action="/publish">
+    <label>Video</label><br>
+    <select name="video_filename">
+      {% for v in videos %}
+        <option value="{{ v }}">{{ v }}</option>
+      {% endfor %}
+    </select>
+    <p>Base URL: {{ video_base }}</p>
+
+    <label>Caption</label><br>
+    <textarea name="caption" rows="4" cols="60"></textarea><br><br>
+
+    <label>Privacy level</label><br>
+    <select name="privacy_level">
+      {% for p in privacy_opts %}
+        <option value="{{ p }}">{{ p }}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+
+    <button type="submit">Publish</button>
+  </form>
+</body>
+</html>
