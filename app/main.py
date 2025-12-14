@@ -109,14 +109,13 @@ def done(request: Request):
     return templates.TemplateResponse("done.html", {"request": request, "connected": bool(token), "result": result})
 
 @app.get("/terms", response_class=HTMLResponse)
-def terms():
-    html = Path("app/templates/terms.html").read_text(encoding="utf-8")
-    return HTMLResponse(html)
+def terms_page(request: Request):
+    return templates.TemplateResponse("terms.html", {"request": request})
 
 @app.get("/privacy", response_class=HTMLResponse)
-def privacy():
-    html = Path("app/templates/privacy.html").read_text(encoding="utf-8")
-    return HTMLResponse(html)
+def privacy_page(request: Request):
+    return templates.TemplateResponse("privacy.html", {"request": request})
+
 
 @app.get("/tiktoklZMH3IJtaGmfDxImk57gOXUJNC2kdZsu.txt")
 def tiktok_domain_verify():
