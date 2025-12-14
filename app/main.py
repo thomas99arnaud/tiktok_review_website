@@ -22,7 +22,8 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 app.add_middleware(SessionMiddleware, secret_key=APP_SECRET_KEY)
 
-templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 # Pour l’audit: liste simple (tu peux remplacer par un JSON "manifest" plus tard)
 AVAILABLE_VIDEOS = [
