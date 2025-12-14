@@ -7,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 from dotenv import load_dotenv
 from fastapi.staticfiles import StaticFiles
-
+from pathlib import Path
 from .tiktok import build_auth_url, exchange_code_for_token, ensure_fresh_token, creator_info, direct_post, gen_state
 
 load_dotenv()
@@ -107,3 +107,13 @@ def done(request: Request):
     token = request.session.get("tiktok_token")
     result = request.session.get("last_result")
     return templates.TemplateResponse("done.html", {"request": request, "connected": bool(token), "result": result})
+
+@app.get("/terms", response_class=HTMLResponse)
+def terms():
+    html = Path("app/templates/terms.html").read_text(encoding="utf-8")
+    return HTMLResponse(html)
+
+@app.get("/privacy", response_class=HTMLResponse)
+def privacy():
+    html = Path("app/templates/privacy.html").read_text(encoding="utf-8")
+    return HTMLResponse(html)
