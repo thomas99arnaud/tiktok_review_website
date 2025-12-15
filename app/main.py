@@ -124,3 +124,10 @@ def tiktok_domain_verify():
         "app/domain_verification/tiktoklZMH3IJtaGmfDxImk57gOXUJNC2kdZsu.txt",
         media_type="text/plain"
     )
+
+@app.get("/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt")
+def tiktok_domain_verify():
+    return FileResponse(
+        "app/domain_verification/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt.txt",
+        media_type="text/plain"
+    )
