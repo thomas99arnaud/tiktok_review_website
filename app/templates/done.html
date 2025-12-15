@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
-<head><link rel="stylesheet" href="/static/main.css"></head>
+<head>
+  <meta charset="utf-8">
+  <title>Done</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
+</head>
 <body>
   <h1>Done</h1>
   {% if result %}
