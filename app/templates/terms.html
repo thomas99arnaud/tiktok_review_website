@@ -1,17 +1,59 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Terms of Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Service • WildFacts</title>
   <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
 </head>
 <body>
-  <h1>Terms of Service</h1>
-  <p>Last updated: 2025-12-14</p>
-  <p>WildFacts Publisher is a tool to publish short educational videos to TikTok accounts owned and managed by the same entity.</p>
-  <h2>Use</h2>
-  <p>Only authorized account owners may use the Service.</p>
-  <h2>Contact</h2>
-  <p>Email: theepicvoltage@gmail.com</p>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">WF</div>
+        <div class="brand__text">
+          <div class="brand__name">WildFacts</div>
+          <div class="brand__sub">Publisher Console</div>
+        </div>
+      </div>
+
+      <nav class="topbar__nav">
+        <a class="link" href="/">Home</a>
+        <a class="link" href="/privacy">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card prose">
+      <h1 class="h1">Terms of Service</h1>
+      <p class="muted small">Last updated: 2025-12-14</p>
+
+      <h2 class="h2">Service</h2>
+      <p>
+        WildFacts Publisher is a web-based tool used to publish short educational animal-facts videos to TikTok accounts
+        owned and operated by the same educational content brand.
+      </p>
+
+      <h2 class="h2">Eligibility and access</h2>
+      <p>
+        Only authorized account owners may use the Service. Access requires TikTok OAuth authorization (Login Kit).
+      </p>
+
+      <h2 class="h2">Content</h2>
+      <p>
+        Published content is educational. Footage is sourced from royalty-free libraries. Narration and subtitles may be generated using AI tools.
+      </p>
+
+      <h2 class="h2">Contact</h2>
+      <p>Email: <a class="link" href="mailto:theepicvoltage@gmail.com">theepicvoltage@gmail.com</a></p>
+    </article>
+
+    <footer class="footer">
+      <div class="muted small">© {{ 2025 }} WildFacts</div>
+    </footer>
+  </main>
 </body>
 </html>

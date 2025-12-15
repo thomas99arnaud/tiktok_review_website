@@ -1,22 +1,88 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WildFacts Publisher</title>
   <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
 </head>
 <body>
-  <h1>WildFacts Publisher</h1>
+  <div class="bg"></div>
 
-  <p>Terms: <a href="/terms">Terms</a> | Privacy: <a href="/privacy">Privacy</a></p>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">WF</div>
+        <div class="brand__text">
+          <div class="brand__name">WildFacts</div>
+          <div class="brand__sub">Publisher Console</div>
+        </div>
+      </div>
 
-  {% if connected %}
-    <p><a href="/logout">Logout</a></p>
-    <p>Status: Connected</p>
-    <p><a href="/publish">Go to Publish</a></p>
-  {% else %}
-    <p>Status: Not connected</p>
-    <a href="/tiktok/login">Login with TikTok</a>
-  {% endif %}
+      <nav class="topbar__nav">
+        <a class="link" href="/terms">Terms</a>
+        <a class="link" href="/privacy">Privacy</a>
+        {% if connected %}
+          <a class="btn btn--ghost" href="/logout">Logout</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__card card">
+        <div class="badge">
+          <span class="dot {% if connected %}dot--ok{% else %}dot--off{% endif %}"></span>
+          <span class="badge__text">{% if connected %}Connected{% else %}Not connected{% endif %}</span>
+        </div>
+
+        <h1 class="h1">Publish educational animal-facts videos to TikTok</h1>
+        <p class="muted">
+          Secure OAuth login, creator validation, and a controlled publishing flow designed for a multi-account educational brand.
+        </p>
+
+        <div class="actions">
+          {% if connected %}
+            <a class="btn" href="/publish">Open Publisher</a>
+          {% else %}
+            <a class="btn" href="/tiktok/login">Login with TikTok</a>
+          {% endif %}
+          <a class="btn btn--secondary" href="/terms">View Terms</a>
+        </div>
+
+        <div class="grid grid--2 mt-24">
+          <div class="mini card card--soft">
+            <div class="mini__title">What it does</div>
+            <div class="mini__text">Select a video, add a caption, choose privacy, then publish via the Content Posting API.</div>
+          </div>
+          <div class="mini card card--soft">
+            <div class="mini__title">Data handling</div>
+            <div class="mini__text">Only minimal account data is used to identify the authorized profile and post content.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero__aside">
+        <div class="card hero__panel">
+          <div class="panel__title">Audit checklist</div>
+          <ul class="list">
+            <li>Public website with visible Terms & Privacy links</li>
+            <li>OAuth login (Login Kit) demonstrated end-to-end</li>
+            <li>Direct Post flow shown with user action</li>
+            <li>Result page displayed</li>
+          </ul>
+          <div class="divider"></div>
+          <div class="muted small">
+            Tip: Use Logout to switch accounts (FR/EN/ES/PT) during the demo.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div class="muted small">© {{ 2025 }} WildFacts — Educational publishing workflow</div>
+    </footer>
+  </main>
 </body>
 </html>

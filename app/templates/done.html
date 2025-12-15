@@ -1,17 +1,59 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Done</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Done • WildFacts</title>
   <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
 </head>
 <body>
-  <h1>Done</h1>
-  {% if result %}
-    <pre>{{ result | tojson(indent=2) }}</pre>
-  {% else %}
-    <p>No result.</p>
-  {% endif %}
-  <p><a href="/publish">Publish another</a></p>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">WF</div>
+        <div class="brand__text">
+          <div class="brand__name">WildFacts</div>
+          <div class="brand__sub">Publisher Console</div>
+        </div>
+      </div>
+
+      <nav class="topbar__nav">
+        <a class="link" href="/">Home</a>
+        <a class="link" href="/publish">Publish</a>
+        <a class="link" href="/terms">Terms</a>
+        <a class="link" href="/privacy">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="result-head">
+        <div>
+          <h1 class="h1">Publish result</h1>
+          <p class="muted">This page shows the raw response returned by TikTok.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="/publish">Publish another</a>
+          <a class="btn btn--secondary" href="/">Home</a>
+        </div>
+      </div>
+
+      {% if result %}
+        <pre class="pre">{{ result | tojson(indent=2) }}</pre>
+      {% else %}
+        <div class="empty">
+          <div class="empty__title">No result</div>
+          <div class="muted">No publish response was found in the session.</div>
+        </div>
+      {% endif %}
+    </div>
+
+    <footer class="footer">
+      <div class="muted small">For audit, keep this page visible to show the end-to-end flow.</div>
+    </footer>
+  </main>
 </body>
 </html>

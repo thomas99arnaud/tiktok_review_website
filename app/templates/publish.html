@@ -1,36 +1,108 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Publish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publish • WildFacts</title>
   <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
 </head>
 <body>
-  <h1>Publish to TikTok</h1>
-  <p><a href="/logout">Logout</a></p>
-  <p>Connected account: {{ username }} ({{ nickname }})</p>
+  <div class="bg"></div>
 
-  <form method="post" action="/publish">
-    <label>Video</label><br>
-    <select name="video_filename">
-      {% for v in videos %}
-        <option value="{{ v }}">{{ v }}</option>
-      {% endfor %}
-    </select>
-    <p>Base URL: {{ video_base }}</p>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">WF</div>
+        <div class="brand__text">
+          <div class="brand__name">WildFacts</div>
+          <div class="brand__sub">Publisher Console</div>
+        </div>
+      </div>
 
-    <label>Caption</label><br>
-    <textarea name="caption" rows="4" cols="60"></textarea><br><br>
+      <nav class="topbar__nav">
+        <a class="link" href="/">Home</a>
+        <a class="link" href="/terms">Terms</a>
+        <a class="link" href="/privacy">Privacy</a>
+        <a class="btn btn--ghost" href="/logout">Logout</a>
+      </nav>
+    </div>
+  </header>
 
-    <label>Privacy level</label><br>
-    <select name="privacy_level">
-      {% for p in privacy_opts %}
-        <option value="{{ p }}">{{ p }}</option>
-      {% endfor %}
-    </select>
-    <br><br>
+  <main class="container">
+    <div class="pagehead">
+      <div>
+        <h1 class="h1">Publish to TikTok</h1>
+        <p class="muted">
+          Connected account: <span class="pill">@{{ username }}</span>
+          <span class="muted small">({{ nickname }})</span>
+        </p>
+      </div>
+      <div class="hint card card--soft">
+        <div class="hint__title">Tip</div>
+        <div class="hint__text">Choose privacy and publish. For audit, showing a successful post is enough.</div>
+      </div>
+    </div>
 
-    <button type="submit">Publish</button>
-  </form>
+    <section class="grid grid--2 gap-16">
+      <div class="card">
+        <h2 class="h2">Publish settings</h2>
+
+        <form method="post" action="/publish" class="form">
+          <div class="field">
+            <label for="video_filename">Video</label>
+            <select id="video_filename" name="video_filename" required>
+              {% for v in videos %}
+                <option value="{{ v }}">{{ v }}</option>
+              {% endfor %}
+            </select>
+            <div class="help">Source base URL: <code class="code">{{ video_base }}</code></div>
+          </div>
+
+          <div class="field">
+            <label for="caption">Caption</label>
+            <textarea id="caption" name="caption" rows="5" placeholder="Write a short caption…"></textarea>
+            <div class="help">Keep captions concise; hashtags optional.</div>
+          </div>
+
+          <div class="field">
+            <label for="privacy_level">Privacy level</label>
+            <select id="privacy_level" name="privacy_level">
+              {% for p in privacy_opts %}
+                <option value="{{ p }}">{{ p }}</option>
+              {% endfor %}
+            </select>
+            <div class="help">Available options are returned by TikTok for the connected account.</div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn">Publish</button>
+            <a class="btn btn--secondary" href="/">Back</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="card card--soft">
+        <h2 class="h2">What will happen</h2>
+        <ol class="steps">
+          <li>TikTok token is refreshed if needed.</li>
+          <li>The selected video URL is sent using <span class="pill">PULL_FROM_URL</span>.</li>
+          <li>TikTok returns a publish result which is displayed on the Done page.</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <div class="mini">
+          <div class="mini__title">Compliance notes</div>
+          <div class="mini__text">
+            Royalty-free footage; AI narration/subtitles; reviewed prior to publication.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted small">Need to switch accounts? Use Logout, then Login again.</div>
+    </footer>
+  </main>
 </body>
 </html>

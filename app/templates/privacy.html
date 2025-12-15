@@ -1,17 +1,58 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy • WildFacts</title>
   <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>Last updated: 2025-12-14</p>
-  <p>We collect only the minimum data required to operate (TikTok open_id, username, avatar) to authenticate and publish content to authorized accounts.</p>
-  <h2>Sharing</h2>
-  <p>We do not sell personal data.</p>
-  <h2>Contact</h2>
-  <p>Email: theepicvoltage@gmail.com</p>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">WF</div>
+        <div class="brand__text">
+          <div class="brand__name">WildFacts</div>
+          <div class="brand__sub">Publisher Console</div>
+        </div>
+      </div>
+
+      <nav class="topbar__nav">
+        <a class="link" href="/">Home</a>
+        <a class="link" href="/terms">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card prose">
+      <h1 class="h1">Privacy Policy</h1>
+      <p class="muted small">Last updated: 2025-12-14</p>
+
+      <h2 class="h2">Data we use</h2>
+      <p>
+        We process only the minimum data required to operate the service: TikTok account identifiers and basic profile information
+        (such as open_id, username, display name, avatar) to authenticate and confirm the connected account.
+      </p>
+
+      <h2 class="h2">OAuth tokens</h2>
+      <p>
+        OAuth access tokens are used exclusively to perform authorized publishing actions requested by the account owner.
+        Tokens are not sold or shared for advertising purposes.
+      </p>
+
+      <h2 class="h2">Sharing</h2>
+      <p>We do not sell personal data.</p>
+
+      <h2 class="h2">Contact</h2>
+      <p>Email: <a class="link" href="mailto:theepicvoltage@gmail.com">theepicvoltage@gmail.com</a></p>
+    </article>
+
+    <footer class="footer">
+      <div class="muted small">© {{ 2025 }} WildFacts</div>
+    </footer>
+  </main>
 </body>
 </html>
