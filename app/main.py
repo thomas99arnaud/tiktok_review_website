@@ -85,7 +85,7 @@ def do_publish(
     request: Request,
     video_filename: str = Form(...),
     caption: str = Form(""),
-    privacy_level: str = Form("PUBLIC_TO_EVERYONE"),
+    privacy_level: str = Form("SELF_ONLY"),
 ):
     token = request.session.get("tiktok_token")
     if not token:
