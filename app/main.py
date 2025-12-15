@@ -128,6 +128,6 @@ def tiktok_domain_verify():
 @app.get("/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt")
 def tiktok_domain_verify():
     return FileResponse(
-        "app/domain_verification/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt.txt",
+        "app/domain_verification/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt",
         media_type="text/plain"
     )
