@@ -101,7 +101,7 @@ def do_publish(
 
     # Affichage simple
     request.session["last_result"] = result
-    return RedirectResponse("/done")
+    return RedirectResponse(url="/done", status_code=303)
 
 @app.get("/done", response_class=HTMLResponse)
 def done(request: Request):
@@ -119,14 +119,14 @@ def privacy_page(request: Request):
 
 
 @app.get("/tiktoklZMH3IJtaGmfDxImk57gOXUJNC2kdZsu.txt")
-def tiktok_domain_verify():
+def tiktok_domain_verify_1():
     return FileResponse(
         "app/domain_verification/tiktoklZMH3IJtaGmfDxImk57gOXUJNC2kdZsu.txt",
         media_type="text/plain"
     )
 
 @app.get("/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt")
-def tiktok_domain_verify():
+def tiktok_domain_verify_2():
     return FileResponse(
         "app/domain_verification/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt",
         media_type="text/plain"
