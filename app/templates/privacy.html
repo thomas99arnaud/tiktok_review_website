@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy • WildFacts</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', path='logo.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
 </head>
 <body>
@@ -12,7 +13,10 @@
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
-        <div class="brand__logo">WF</div>
+        <div class="brand__logo brand__logo--img">
+          <img src="{{ url_for('static', path='logo.png') }}" alt="WildFacts logo">
+        </div>
+
         <div class="brand__text">
           <div class="brand__name">WildFacts</div>
           <div class="brand__sub">Publisher Console</div>

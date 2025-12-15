@@ -326,3 +326,14 @@ select:focus, textarea:focus{
   .hint{ max-width: none; }
   .grid--2{ grid-template-columns: 1fr; }
 }
+
+.brand__logo--img {
+  padding: 6px;
+}
+
+.brand__logo--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
