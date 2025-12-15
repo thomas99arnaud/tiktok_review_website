@@ -43,6 +43,12 @@ def tiktok_login(request: Request):
     url = build_auth_url(CLIENT_KEY, REDIRECT_URI, state)
     return RedirectResponse(url)
 
+@app.get("/logout")
+def logout(request: Request):
+    request.session.clear()
+    return RedirectResponse(url="/", status_code=303)
+
+
 @app.get("/tiktok/callback")
 def tiktok_callback(request: Request, code: str = "", state: str = ""):
     expected = request.session.get("oauth_state")
