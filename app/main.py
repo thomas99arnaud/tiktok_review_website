@@ -137,3 +137,14 @@ def tiktok_domain_verify_2():
         "app/domain_verification/tiktokiBuxjByVLGIO8QUUT9sB0BPwgEDdG19B.txt",
         media_type="text/plain"
     )
+
+from pathlib import Path
+
+@app.get("/_debug_static")
+def debug_static():
+    base = Path(__file__).resolve().parent / "static"
+    return {
+        "static_dir": str(base),
+        "exists": base.exists(),
+        "files": [p.name for p in base.glob("*")],
+    }
